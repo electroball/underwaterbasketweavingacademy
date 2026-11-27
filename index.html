@@ -92,7 +92,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px 40px;justify-content:space-bet
 <nav>
   <div class="wrap">
     <a class="logo" href="#top"><svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><circle cx="24" cy="6" r="2.2" fill="none" stroke="#7fd6c8" stroke-width="1.5"/><circle cx="28" cy="11" r="1.4" fill="none" stroke="#7fd6c8" stroke-width="1.5"/><path d="M5 14h24l-3 16H8z" fill="#e3c98f"/><path d="M6 19h22M7 24h20" stroke="#b89250" stroke-width="2"/><path d="M11 14l1 16M17 14v16M23 14l-1 16" stroke="#b89250" stroke-width="2"/><path d="M8 14c0-6 18-6 18 0" fill="none" stroke="#e3c98f" stroke-width="2.5"/></svg>Underwater Basket<br>Weaving Academy</a>
-    <div class="links"><a href="#strategy">The strategy</a><a href="#wisdom">Wisdom</a><a href="#curriculum">Curriculum</a><a href="#tools">Ballast tool</a><a href="#enroll">Enroll</a><a href="#faq">FAQ</a></div>
+    <div class="links"><a href="#strategy">The strategy</a><a href="#wisdom">Wisdom</a><a href="#curriculum">Curriculum</a><a href="#tools">Ballast tool</a><a href="#enroll">Enroll</a><a href="#community">Discord</a><a href="#faq">FAQ</a></div>
     <a class="btn" href="#enroll">Dive in</a>
   </div>
 </nav>
@@ -103,7 +103,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px 40px;justify-content:space-bet
       <h1>Weave your trades at neutral buoyancy.</h1>
       <div>
         <p class="lede">An eight-week course in the Equilibrium Strategy, taught from the bottom of the sea. Learn how price floats around fair value, when to weave a trade through the swing, and how to keep your head when the water gets choppy.</p>
-        <div class="acts"><a class="btn" href="#enroll">Dive in</a><a class="btn ghost" href="#strategy">See how it works</a></div>
+        <div class="acts"><a class="btn" href="#enroll">Dive in</a><a class="btn ghost" href="#strategy">See how it works</a><a class="btn ghost" href="https://discord.gg/xQ5Jcj5mXZ">Join the Discord</a></div>
       </div>
     </div>
     <div class="fig" role="img" aria-label="Underwater scene: a reed of price weaves up and down around a neutral buoyancy line inside a shaded value zone, then drifts away; a woven basket on the sea floor shows most trading happened near the line"><svg id="chart"></svg></div>
@@ -179,7 +179,22 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px 40px;justify-content:space-bet
   </div>
 </section>
 
-<section class="band" id="enroll">
+<section class="band" id="community">
+  <div class="wrap two">
+    <div>
+      <h2>Come swim with us on Discord</h2>
+      <p>The Academy lives on Discord. Anyone can wade into the Shallow End for free. Course members get the keys to the Deep End.</p>
+      <a class="btn" href="https://discord.gg/xQ5Jcj5mXZ">Join the Discord</a>
+      <p class="note" style="margin-top:12px">Free to join. Opens Discord in a new page.</p>
+    </div>
+    <div class="pillars">
+      <div><h3>The Shallow End, free</h3><p>Introductions, free lessons, general chat and market chat. Announcements and course updates land here first.</p></div>
+      <div><h3>The Deep End, members</h3><p>Course lessons, daily levels, the trade journal, the wisdom strand, a live-review voice room and direct questions to the instructors.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="enroll">
   <div class="wrap price">
     <div class="card">
       <h2>One course, the whole basket</h2>
@@ -190,27 +205,20 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px 40px;justify-content:space-bet
         <li>Chart drills with answer walk-throughs</li>
         <li>Trading plan and journal templates</li>
         <li>Monthly live review of student trades</li>
+        <li>Members-only Deep End channels in our Discord</li>
         <li>30-day refund if you'd rather stay dry</li>
       </ul>
     </div>
-    <form class="form" id="form" novalidate>
+    <div class="form">
       <h2>Join the next cohort</h2>
-      <p>The next group goes under in January. Leave your details and we'll send the enrollment link.</p>
-      <div class="row">
-        <label for="name">Name<input id="name" autocomplete="name" required></label>
-        <label for="email">Email<input id="email" type="email" autocomplete="email" required></label>
-      </div>
-      <label for="level">Your experience
-        <select id="level"><option>Never been in the water</option><option>Paddling, under a year</option><option>Snorkeling, one to three years</option><option>Deep diver, three years plus</option></select>
-      </label>
-      <button class="btn" type="submit">Send me the link</button>
-      <p class="note" id="err" style="margin-top:10px"></p>
-      <div class="ok" id="ok">Thanks. This page is a preview, so nothing was sent yet. Once the site is live, this form will connect to your email list.</div>
-    </form>
+      <p>The next group goes under in January. Join the newsletter and we'll send the enrollment link, plus a free lesson from week 1.</p>
+      <a class="btn" href="https://electros-newsletter.beehiiv.com/subscribe">Join the newsletter</a>
+      <p class="note" style="margin-top:12px">Opens our newsletter signup on beehiiv. Unsubscribe anytime.</p>
+    </div>
   </div>
 </section>
 
-<section class="band alt" id="faq">
+<section class="band" id="faq">
   <div class="wrap two">
     <div>
       <h2>Questions</h2>
@@ -221,6 +229,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px 40px;justify-content:space-bet
       <details><summary>Do I need to know how to swim?</summary><p>No experience needed. Week 1 covers charts, order types and how a trading day works. Experienced traders usually start at week 2.</p></details>
       <details><summary>Which markets does this work in?</summary><p>Any liquid market with good volume data: large US stocks, index futures and major currency pairs. Course examples use stocks and index futures.</p></details>
       <details><summary>Will I make money?</summary><p>We can't promise that and nobody honest can. The course teaches a method and the discipline to follow it. Most people who try day trading lose money, which is why every drill starts on a simulator.</p></details>
+      <details><summary>Is there a community?</summary><p>Yes. Our Discord is free to join: the Shallow End has free lessons, introductions and market chat. Course members also get the Deep End, with daily levels, the trade journal, live reviews and direct questions to the instructors. <a href="https://discord.gg/xQ5Jcj5mXZ">Join the Discord</a>.</p></details>
       <details><summary>How much time does it take?</summary><p>Plan on three to four hours a week: about an hour of lessons and the rest on drills and journaling. No decompression stops required.</p></details>
     </div>
   </div>
@@ -237,7 +246,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px 40px;justify-content:space-bet
 <footer class="band">
   <div class="wrap">
     <div><strong style="font-family:Fredoka,sans-serif;font-size:20px;color:#fff">Underwater Basket Weaving Academy</strong><br>Wisdom and the Equilibrium Strategy</div>
-    <div>hello@basketweaving.academy<br>(555) 014-2290</div>
+    <div>hello@basketweaving.academy<br>(555) 014-2290<br><a href="https://discord.gg/xQ5Jcj5mXZ">Join our Discord</a></div>
     <div>© 2026 Underwater Basket Weaving Academy. Contact details are samples.</div>
   </div>
 </footer>
@@ -317,12 +326,7 @@ const calc=()=>{
 };
 ['acct','pct','entry','stop'].forEach(id=>$(id).addEventListener('input',calc));calc();
 
-$('form').addEventListener('submit',ev=>{
- ev.preventDefault();
- const n=$('name').value.trim(),em=$('email').value.trim();
- if(!n||!/^\S+@\S+\.\S+$/.test(em)){$('err').textContent='Add your name and a valid email address to get the link.';$('ok').style.display='none';return}
- $('err').textContent='';$('ok').style.display='block';
-});
+
 }
 </script>
 </body>
