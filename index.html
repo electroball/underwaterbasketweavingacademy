@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Underwater Basket Weaving Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE occasion: a deadpan joke school that is secretly a real day-trading course
+   IDEA a reef-floor craft class: price is a reed woven through the water, equilibrium is neutral buoyancy
+   PICTURE underwater scene: light rays, a reed of price weaving around a buoyancy line, a woven basket volume profile on the sand, rising bubbles
+   COLOUR deep sea #06364a field, sea glass #7fd6c8, coral #ff7a59 accent, reed #e3c98f; night #041a24
+   TYPE Fredoka display + Nunito text
+   LAYOUT laptop: title across top of the sea band, scene full width beneath; phone: title, scene, buttons */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#041a24);--ink:light-dark(#0b2530,#e6f4f4);--soft:light-dark(#4d6a74,#9fbcc3);--sea:#06364a;--sea2:light-dark(#0b4f66,#0a2d3c);--glass:#7fd6c8;--coral:#ff7a59;--reed:#e3c98f;--line:light-dark(#d5e6e8,#16394a);--panel:light-dark(#eef8f7,#072431)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:72px;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.6 Nunito,system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:Fredoka,system-ui,sans-serif;font-weight:600;letter-spacing:-.01em;line-height:1.08;text-wrap:balance;margin:0}
+h1{font-size:clamp(36px,5.4vw,60px)}
+h2{font-size:clamp(30px,3.6vw,44px);margin-bottom:14px}
+h3{font-size:21px;margin-bottom:6px}
+p{margin:0 0 12px;max-width:66ch}
+a{color:inherit}
+.band{padding-block:clamp(36px,5vw,80px);padding-left:max(5vw,16px);padding-right:max(5vw,16px)}
+.wrap{max-width:1240px;margin:0 auto}
+.weave{height:22px;background:var(--reed);background-image:repeating-linear-gradient(90deg,#c9a764 0 22px,transparent 22px 44px),repeating-linear-gradient(0deg,rgba(0,0,0,.12) 0 11px,transparent 11px 22px)}
+nav{position:sticky;top:0;z-index:5;background:var(--sea);color:#e6f4f4;padding:12px max(5vw,16px)}
+nav .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px}
+.logo{display:flex;align-items:center;gap:10px;font-family:Fredoka,sans-serif;font-weight:600;font-size:19px;line-height:1.15;text-decoration:none;margin-right:auto}
+nav .links{display:flex;flex-wrap:wrap;gap:4px 20px;font-size:15px}
+nav .links a{text-decoration:none;opacity:.85;padding:6px 0}
+nav .links a:hover{opacity:1;text-decoration:underline;text-underline-offset:4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 22px;border-radius:999px;border:2px solid var(--coral);background:var(--coral);color:#1c0d08;font:700 16px Nunito,sans-serif;text-decoration:none;cursor:pointer}
+.btn.ghost{background:transparent;color:inherit;border-color:var(--glass)}
+.btn:hover{filter:brightness(1.08)}
+.btn:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--glass);outline-offset:3px}
+.hero{background:linear-gradient(#0b4f66,var(--sea) 60%);color:#e6f4f4;padding-top:clamp(28px,4vw,56px)}
+.hero .top{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:20px 48px;align-items:end;margin-bottom:28px}
+.hero .lede{font-size:18px;color:#cfe7ea;margin:0 0 18px}
+.hero .acts{display:flex;flex-wrap:wrap;gap:12px}
+.fig{position:relative;min-height:380px;border-radius:18px;overflow:hidden;background:#05293a}
+.fig>svg{position:absolute;inset:0;width:100%;height:100%}
+.fig text{font:600 14px Nunito,sans-serif;paint-order:stroke;stroke:#05293a;stroke-width:4px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(10em,1fr));gap:14px 28px;margin-top:22px;font-size:15px;color:#cfe7ea}
+.facts b{display:block;font-family:Fredoka,sans-serif;font-weight:600;font-size:26px;color:#fff}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px 56px}
+.steps{list-style:none;padding:0;margin:24px 0 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.steps li{border-top:3px solid var(--glass);padding-top:14px}
+.steps .n{font-family:Fredoka,sans-serif;font-weight:700;font-size:34px;color:var(--coral);line-height:1}
+.mini{display:block;width:100%;height:70px;margin:10px 0;border-radius:8px;background:light-dark(#dff2f1,#0a3346)}
+.pillars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 40px;margin-top:20px}
+.pillars div{padding-left:18px;border-left:3px dotted var(--coral)}
+.alt{background:var(--panel)}
+.mods{border-top:1px solid var(--line);margin-top:20px}
+.mods details{border-bottom:1px solid var(--line)}
+.mods summary{display:grid;grid-template-columns:3.2em minmax(0,1fr) auto;gap:12px;align-items:baseline;padding:16px 0;cursor:pointer;list-style:none}
+.mods summary::-webkit-details-marker{display:none}
+.mods summary .w{font-family:Fredoka,sans-serif;font-weight:700;color:var(--coral);font-size:20px}
+.mods summary .t{font-size:19px;font-weight:700}
+.mods summary .l{color:var(--soft);font-size:15px;white-space:nowrap}
+.mods ul{margin:0 0 18px 3.2em;padding-left:18px;color:var(--soft)}
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:24px}
+label{display:block;font-weight:700;font-size:15px;margin-bottom:12px}
+input,select{display:block;width:100%;margin-top:6px;font:16px Nunito,sans-serif;padding:11px 12px;border:1px solid light-dark(#a9c9cd,#245063);border-radius:10px;background:var(--bg);color:var(--ink)}
+.out{background:var(--sea);color:#e6f4f4;border-radius:14px;padding:22px;display:flex;flex-direction:column;justify-content:center}
+.out .big{font-family:Fredoka,sans-serif;font-weight:600;font-size:clamp(40px,6vw,64px);line-height:1;color:#fff;white-space:nowrap}
+.out p{color:#cfe7ea;font-size:15px;margin:10px 0 0}
+.price{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:32px 56px;align-items:start}
+.card{border:3px solid var(--reed);border-radius:20px;padding:28px;background:light-dark(#fffaf0,#0a2633)}
+.card .amt{font-family:Fredoka,sans-serif;font-weight:700;font-size:56px;line-height:1}
+.card ul{padding-left:20px;margin:16px 0 22px}
+.form .row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 16px}
+.note{font-size:14px;color:var(--soft)}
+.ok{display:none;padding:14px 16px;border-radius:12px;background:color-mix(in srgb,var(--glass) 25%,transparent);margin-top:12px}
+.faq details{border-bottom:1px solid var(--line);padding:14px 0}
+.faq summary{cursor:pointer;font-weight:700;font-size:17px}
+.faq details p{margin-top:8px;color:var(--soft)}
+.risk{background:var(--sea2);color:#e6f4f4}
+.risk p{color:#cfe7ea}
+footer{background:#041a24;color:#cfe7ea;font-size:15px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px 40px;justify-content:space-between}
+@media(max-width:900px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:720px){.hero .top,.two,.price,.calc{grid-template-columns:minmax(0,1fr)}.pillars{grid-template-columns:minmax(0,1fr)}nav .links{display:none}}
+@media(max-width:600px){.steps{grid-template-columns:minmax(0,1fr)}.form .row{grid-template-columns:minmax(0,1fr)}.fig{min-height:320px}.mods ul{margin-left:0}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.bub,#fish{display:none}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top"><svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><circle cx="24" cy="6" r="2.2" fill="none" stroke="#7fd6c8" stroke-width="1.5"/><circle cx="28" cy="11" r="1.4" fill="none" stroke="#7fd6c8" stroke-width="1.5"/><path d="M5 14h24l-3 16H8z" fill="#e3c98f"/><path d="M6 19h22M7 24h20" stroke="#b89250" stroke-width="2"/><path d="M11 14l1 16M17 14v16M23 14l-1 16" stroke="#b89250" stroke-width="2"/><path d="M8 14c0-6 18-6 18 0" fill="none" stroke="#e3c98f" stroke-width="2.5"/></svg>Underwater Basket<br>Weaving Academy</a>
+    <div class="links"><a href="#strategy">The strategy</a><a href="#wisdom">Wisdom</a><a href="#curriculum">Curriculum</a><a href="#tools">Ballast tool</a><a href="#enroll">Enroll</a><a href="#faq">FAQ</a></div>
+    <a class="btn" href="#enroll">Dive in</a>
+  </div>
+</nav>
+
+<header class="hero band" id="top">
+  <div class="wrap">
+    <div class="top">
+      <h1>Weave your trades at neutral buoyancy.</h1>
+      <div>
+        <p class="lede">An eight-week course in the Equilibrium Strategy, taught from the bottom of the sea. Learn how price floats around fair value, when to weave a trade through the swing, and how to keep your head when the water gets choppy.</p>
+        <div class="acts"><a class="btn" href="#enroll">Dive in</a><a class="btn ghost" href="#strategy">See how it works</a></div>
+      </div>
+    </div>
+    <div class="fig" role="img" aria-label="Underwater scene: a reed of price weaves up and down around a neutral buoyancy line inside a shaded value zone, then drifts away; a woven basket on the sea floor shows most trading happened near the line"><svg id="chart"></svg></div>
+    <div class="facts">
+      <div><b>8 weeks</b>one dive a week, self-paced</div>
+      <div><b>32 lessons</b>video, chart drills and notes</div>
+      <div><b>2 strands</b>market structure and trader wisdom</div>
+      <div><b>Paper first</b>every drill in the shallow end</div>
+    </div>
+  </div>
+</header>
+<div class="weave" aria-hidden="true"></div>
+
+<section class="band" id="strategy">
+  <div class="wrap">
+    <div class="two">
+      <div>
+        <h2>What the Equilibrium Strategy is</h2>
+        <p>A diver at neutral buoyancy neither sinks nor floats. Most of the day, a market behaves the same way. Buyers and sellers roughly agree on what something is worth, and price bobs up and down around that fair value. On a volume profile this shows up as a bulge, with the heaviest trading in the middle. We call that middle the equilibrium.</p>
+        <p>Every so often the ballast shifts. Price breaks out of the range, nobody pushes it back, and it drifts off to find a new fair value. That is imbalance.</p>
+      </div>
+      <div>
+        <p>The strategy is a set of rules for telling the two states apart in real time. In balance, you wait for price to stretch to the edge of value and get pushed back, then weave a trade toward equilibrium. In imbalance, you stop fading the move and either surface or follow it once it holds at new prices.</p>
+        <p>None of this predicts the tides. It gives you a reason for every trade, a place where you are clearly wrong, and a target that comes from the market rather than from hope.</p>
+      </div>
+    </div>
+    <ol class="steps" id="steps"></ol>
+  </div>
+</section>
+
+<section class="band alt" id="wisdom">
+  <div class="wrap two">
+    <div>
+      <h2>The wisdom strand</h2>
+      <p>Every basket needs two strands crossing each other. Ours are the chart and the trader. A strategy only works in the hands of someone who can follow it when it hurts, so half the course is about you. The ideas draw on Stoic philosophy, decision science and the plain experience of anyone who has broken their own rules.</p>
+      <p>Each week pairs a market lesson with a practice: a journaling prompt, a pre-market routine, or a rule you commit to before the open.</p>
+    </div>
+    <div class="pillars">
+      <div><h3>Patience</h3><p>Most of a good trader's day is waiting. You learn to treat no trade as a position you chose, like a diver holding still so the silt settles.</p></div>
+      <div><h3>Process over outcome</h3><p>A good trade can lose and a bad one can win. You grade yourself on whether you followed the plan.</p></div>
+      <div><h3>Mind your own depth</h3><p>Your mind has a safe range too. Tilt, revenge trading and boredom are what happen when you dive past it.</p></div>
+      <div><h3>Small enough to breathe</h3><p>Position size is a psychological tool. If a loss would change your mood, you're carrying too much weight.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="curriculum">
+  <div class="wrap">
+    <h2>Curriculum</h2>
+    <p>Eight dives, in order. Open any week to see its lessons.</p>
+    <div class="mods" id="mods"></div>
+  </div>
+</section>
+
+<section class="band alt" id="tools">
+  <div class="wrap">
+    <h2>Try the ballast calculator from week 6</h2>
+    <p>The course rule: risk a fixed small share of your account on each trade, and let the distance to your stop decide how much you carry. Change the numbers and watch the size move.</p>
+    <div class="calc">
+      <div>
+        <label for="acct">Account size ($)<input id="acct" type="number" inputmode="decimal" min="0" value="25000"></label>
+        <label for="pct">Risk per trade (%)<input id="pct" type="number" inputmode="decimal" min="0" max="5" step="0.1" value="0.5"></label>
+        <label for="entry">Entry price ($)<input id="entry" type="number" inputmode="decimal" min="0" step="0.01" value="182.40"></label>
+        <label for="stop">Stop price ($)<input id="stop" type="number" inputmode="decimal" min="0" step="0.01" value="181.65"></label>
+      </div>
+      <div class="out" aria-live="polite">
+        <div class="note" style="color:#cfe7ea">Position size</div>
+        <div class="big" id="shares">166 shares</div>
+        <p id="detail"></p>
+      </div>
+    </div>
+    <p class="note" style="margin-top:12px">Example numbers. This is a teaching tool, not a recommendation to buy or sell anything.</p>
+  </div>
+</section>
+
+<section class="band" id="enroll">
+  <div class="wrap price">
+    <div class="card">
+      <h2>One course, the whole basket</h2>
+      <div class="amt">$349</div>
+      <p class="note">One-time payment, lifetime access. Sample price.</p>
+      <ul>
+        <li>32 lessons across both strands</li>
+        <li>Chart drills with answer walk-throughs</li>
+        <li>Trading plan and journal templates</li>
+        <li>Monthly live review of student trades</li>
+        <li>30-day refund if you'd rather stay dry</li>
+      </ul>
+    </div>
+    <form class="form" id="form" novalidate>
+      <h2>Join the next cohort</h2>
+      <p>The next group goes under in January. Leave your details and we'll send the enrollment link.</p>
+      <div class="row">
+        <label for="name">Name<input id="name" autocomplete="name" required></label>
+        <label for="email">Email<input id="email" type="email" autocomplete="email" required></label>
+      </div>
+      <label for="level">Your experience
+        <select id="level"><option>Never been in the water</option><option>Paddling, under a year</option><option>Snorkeling, one to three years</option><option>Deep diver, three years plus</option></select>
+      </label>
+      <button class="btn" type="submit">Send me the link</button>
+      <p class="note" id="err" style="margin-top:10px"></p>
+      <div class="ok" id="ok">Thanks. This page is a preview, so nothing was sent yet. Once the site is live, this form will connect to your email list.</div>
+    </form>
+  </div>
+</section>
+
+<section class="band alt" id="faq">
+  <div class="wrap two">
+    <div>
+      <h2>Questions</h2>
+      <p>If yours isn't here, write to hello@basketweaving.academy (sample address).</p>
+    </div>
+    <div class="faq">
+      <details><summary>Will I actually weave a basket?</summary><p>No. The baskets are spiritual. This is a day-trading course with a very committed sense of humor.</p></details>
+      <details><summary>Do I need to know how to swim?</summary><p>No experience needed. Week 1 covers charts, order types and how a trading day works. Experienced traders usually start at week 2.</p></details>
+      <details><summary>Which markets does this work in?</summary><p>Any liquid market with good volume data: large US stocks, index futures and major currency pairs. Course examples use stocks and index futures.</p></details>
+      <details><summary>Will I make money?</summary><p>We can't promise that and nobody honest can. The course teaches a method and the discipline to follow it. Most people who try day trading lose money, which is why every drill starts on a simulator.</p></details>
+      <details><summary>How much time does it take?</summary><p>Plan on three to four hours a week: about an hour of lessons and the rest on drills and journaling. No decompression stops required.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="band risk">
+  <div class="wrap">
+    <h3>Risk disclosure</h3>
+    <p>Underwater Basket Weaving Academy is an educational day-trading course. Nothing in it is financial advice or a recommendation to trade any security. Day trading carries a high risk of loss, and you can lose more than you expect, quickly. Only trade money you can afford to lose, and consider speaking to a licensed financial adviser about your situation.</p>
+  </div>
+</section>
+<div class="weave" aria-hidden="true"></div>
+
+<footer class="band">
+  <div class="wrap">
+    <div><strong style="font-family:Fredoka,sans-serif;font-size:20px;color:#fff">Underwater Basket Weaving Academy</strong><br>Wisdom and the Equilibrium Strategy</div>
+    <div>hello@basketweaving.academy<br>(555) 014-2290</div>
+    <div>© 2026 Underwater Basket Weaving Academy. Contact details are samples.</div>
+  </div>
+</footer>
+
+<script>
+{
+const steps=[
+ ["Find neutral buoyancy","Mark the value zone and the equilibrium line from the prior session's volume profile.","bal"],
+ ["Wait at the edge","Do nothing until price reaches the top or bottom of value. Most of the dive is this step.","edge"],
+ ["Read the current","Pushed back at the edge means balance holds. Holding outside means imbalance has begun.","read"],
+ ["Weave back to center","On a push back, enter toward equilibrium, stop just past the edge, target the line.","back"]
+];
+const mini=k=>{
+ const p={bal:"M0 35 C20 15 40 55 60 35 S100 15 120 35 S160 55 180 35",edge:"M0 35 C30 30 60 20 90 12 S150 12 180 14",read:"M0 30 C40 20 70 6 90 8 S110 30 130 34",back:"M0 10 C30 8 50 14 80 24 S140 36 180 35"}[k];
+ return `<svg class="mini" viewBox="0 0 180 50" preserveAspectRatio="none" aria-hidden="true"><rect x="0" y="12" width="180" height="46" fill="#7fd6c8" opacity=".25"/><line x1="0" y1="35" x2="180" y2="35" stroke="#ff7a59" stroke-dasharray="4 4" vector-effect="non-scaling-stroke"/><path d="${p}" fill="none" stroke="#b89250" stroke-width="3" vector-effect="non-scaling-stroke"/></svg>`;
+};
+document.getElementById('steps').innerHTML=steps.map((s,i)=>`<li><div class="n">${i+1}</div>${mini(s[2])}<h3>${s[0]}</h3><p>${s[1]}</p></li>`).join('');
+
+const mods=[
+ ["The shallow end","4 lessons",["Charts, candles and timeframes","Order types and slippage","Liquidity and who is on the other side","Wisdom: why you want to trade"]],
+ ["Sink or float","4 lessons",["Auction theory in plain terms","Reading a volume profile","Value zone and the equilibrium line","Wisdom: the patience practice"]],
+ ["Finding the edges of the reef","4 lessons",["Prior day value as a map","Opening relative to value","Where the edge really is","Wisdom: writing a pre-market plan"]],
+ ["Pushed back or swept away","4 lessons",["What rejection looks like","Time and volume at new prices","Failed breakouts","Wisdom: being wrong quickly"]],
+ ["The weave","4 lessons",["Entries at the edge","Stops that mean something","Targets at equilibrium","Wisdom: process over outcome"]],
+ ["Ballast and air supply","4 lessons",["Fixed-fraction sizing","Daily loss limits","Correlation and doubling up","Wisdom: small enough to breathe"]],
+ ["When the current turns","4 lessons",["Trend days and how to spot them early","Surfacing and stepping aside","Following accepted moves","Wisdom: letting go of a view"]],
+ ["Your own basket","4 lessons",["Building your rulebook","The trade journal","Reviewing a week of trades","Wisdom: a practice for the long run"]]
+];
+document.getElementById('mods').innerHTML=mods.map((m,i)=>`<details${i===1?' open':''}><summary><span class="w">${i+1}</span><span class="t">${m[0]}</span><span class="l">${m[1]}</span></summary><ul>${m[2].map(x=>`<li>${x}</li>`).join('')}</ul></details>`).join('');
+
+let seed=7;const rnd=()=>(seed=seed*16807%2147483647)/2147483647;
+const N=150,px=[];let v=0,vel=0;
+for(let i=0;i<N;i++){const pull=i<118?-0.06*v:0.05;vel=vel*0.82+pull+(rnd()-.5)*0.55;v+=vel;px.push(v)}
+const bubs=Array.from({length:14},()=>[rnd(),rnd(),3+rnd()*6,6+rnd()*8]);
+const s=document.getElementById('chart');
+const draw=()=>{
+ const W=s.clientWidth,H=s.clientHeight;if(!W||!H)return;
+ const narrow=W<520,pr=narrow?80:150,L=16,T=30,sand=narrow?44:56,B=sand+14,R=W-pr-16;
+ const lo=Math.min(...px)-.6,hi=Math.max(...px)+.6;
+ const y=p=>T+(hi-p)/(hi-lo)*(H-T-B),x=i=>L+i/(N-1)*(R-L);
+ const bins=22,cnt=Array(bins).fill(0);
+ px.forEach((p,i)=>{if(i<118)cnt[Math.min(bins-1,Math.floor((p-lo)/(hi-lo)*bins))]+=1});
+ const mx=Math.max(...cnt),poc=cnt.indexOf(mx),bh=(H-T-B)/bins;
+ const eq=lo+(poc+.5)/bins*(hi-lo);
+ const bal=px.slice(0,118).sort((a,b)=>a-b),vah=bal[Math.floor(bal.length*.85)],val=bal[Math.floor(bal.length*.15)];
+ let o=`<defs><linearGradient id="wa" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0e6a85"/><stop offset="1" stop-color="#04202e"/></linearGradient><linearGradient id="ray" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bff3ec" stop-opacity=".22"/><stop offset="1" stop-color="#bff3ec" stop-opacity="0"/></linearGradient><linearGradient id="sd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9bf86"/><stop offset="1" stop-color="#a98a4f"/></linearGradient></defs>`;
+ o+=`<rect width="${W}" height="${H}" fill="url(#wa)"/>`;
+ [[.12,.08],[.36,.06],[.62,.1],[.84,.05]].forEach(([a,w])=>{o+=`<path d="M${W*a} 0h${W*w}l${W*.12} ${H}h-${W*w*1.6}z" fill="url(#ray)"/>`});
+ o+=`<path d="M0 ${H-sand+8} Q${W*.25} ${H-sand-6} ${W*.5} ${H-sand+4} T${W} ${H-sand} V${H} H0z" fill="url(#sd)"/>`;
+ for(let k=0;k<5;k++){const kx=W*(.05+k*.2)+(k%2)*20,kh=H*(.25+(k%3)*.08);o+=`<path d="M${kx} ${H-sand+6} q-14 -${kh*.3} 0 -${kh*.55} t0 -${kh*.45}" fill="none" stroke="#1d7a62" stroke-width="5" stroke-linecap="round" opacity=".55"/>`}
+ o+=`<rect x="${L}" y="${y(vah)}" width="${R-L}" height="${y(val)-y(vah)}" rx="8" fill="#7fd6c8" opacity=".14"/>`;
+ const bx=W-16,bw=pr-20;
+ o+=`<path d="M${bx-bw-6} ${T-6}h${bw+12}" stroke="#e3c98f" stroke-width="3" stroke-linecap="round" opacity=".6"/>`;
+ cnt.forEach((c,b)=>{const p=lo+(b+.5)/bins*(hi-lo),w=Math.max(4,c/mx*bw),yy=T+(bins-1-b)*bh+1,h=Math.max(1,bh-2);const inV=p<=vah&&p>=val;o+=`<rect x="${bx-w}" y="${yy}" width="${w}" height="${h}" rx="${Math.min(4,h/2)}" fill="${b===poc?'#ff7a59':'#e3c98f'}" opacity="${b===poc?1:(inV?.85:.4)}"/>`;if(h>6)for(let q=bx-w+8;q<bx-2;q+=12)o+=`<line x1="${q}" x2="${q}" y1="${yy+1}" y2="${yy+h-1}" stroke="#8a6a32" stroke-width="2" opacity=".5"/>`});
+ o+=`<line x1="${L}" x2="${W-16}" y1="${y(eq)}" y2="${y(eq)}" stroke="#ff7a59" stroke-width="2" stroke-dasharray="7 6"/>`;
+ const path=px.map((p,i)=>`${i?'L':'M'}${x(i).toFixed(1)} ${y(p).toFixed(1)}`).join('');
+ o+=`<path d="${path}" fill="none" stroke="#8a6a32" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><path d="${path}" fill="none" stroke="#e3c98f" stroke-width="3.5" stroke-linejoin="round" stroke-dasharray="9 5"/>`;
+ o+=`<g id="fish"><path d="M0 0c6-6 16-6 20 0-4 6-14 6-20 0z" fill="#ff7a59"/><path d="M0 0-7-5v10z" fill="#ff7a59"/><circle cx="14" cy="-1" r="1.6" fill="#05293a"/><animateMotion dur="16s" repeatCount="indefinite" rotate="auto" path="${path}"/></g>`;
+ bubs.forEach(([a,b,r,d],i)=>{const bxx=L+a*(R-L);o+=`<circle class="bub" cx="${bxx}" cy="${H-sand}" r="${r}" fill="none" stroke="#bff3ec" stroke-width="1.5" opacity=".6"><animate attributeName="cy" from="${H-sand}" to="-10" dur="${d}s" begin="-${(b*d).toFixed(1)}s" repeatCount="indefinite"/></circle>`});
+ o+=`<text x="${L+8}" y="${y(eq)-10}" fill="#ffb59f">Neutral buoyancy (equilibrium)</text>`;
+ o+=`<text x="${L+8}" y="${y(vah)-8}" fill="#cfe7ea">Top of value</text>`;
+ o+=`<text x="${L+8}" y="${y(val)+20}" fill="#cfe7ea">Bottom of value</text>`;
+ if(!narrow){o+=`<text x="${(L+x(117))/2}" y="${H-sand/2+6}" fill="#3b2a10" style="stroke:none" text-anchor="middle">Balance: price bobs around fair value</text>`;o+=`<text x="${x(130)}" y="${H-sand/2+6}" fill="#3b2a10" style="stroke:none" text-anchor="middle">Imbalance: it drifts off</text>`;o+=`<text x="${W-16}" y="${H-sand/2+6}" fill="#3b2a10" style="stroke:none" text-anchor="end">Woven volume profile</text>`}
+ s.innerHTML=o;
+};
+const ro=new ResizeObserver(draw);ro.observe(s);
+
+const $=id=>document.getElementById(id);
+const fmt=n=>n.toLocaleString('en-US',{maximumFractionDigits:2});
+const calc=()=>{
+ const a=+$('acct').value,p=+$('pct').value,e=+$('entry').value,st=+$('stop').value;
+ const risk=a*p/100,per=Math.abs(e-st);
+ if(!(a>0&&p>0&&per>0)){$('shares').textContent='—';$('detail').textContent='Enter an account size, a risk above zero, and a stop that differs from the entry.';return}
+ const sh=Math.floor(risk/per);
+ $('shares').textContent=`${fmt(sh)} share${sh===1?'':'s'}`;
+ $('detail').textContent=`You risk $${fmt(risk)} with $${fmt(per)} per share between entry and stop. Position value about $${fmt(sh*e)}${sh*e>a?', more than the account, so this needs margin. Consider a smaller risk or a tighter setup.':'.'}`;
+};
+['acct','pct','entry','stop'].forEach(id=>$(id).addEventListener('input',calc));calc();
+
+$('form').addEventListener('submit',ev=>{
+ ev.preventDefault();
+ const n=$('name').value.trim(),em=$('email').value.trim();
+ if(!n||!/^\S+@\S+\.\S+$/.test(em)){$('err').textContent='Add your name and a valid email address to get the link.';$('ok').style.display='none';return}
+ $('err').textContent='';$('ok').style.display='block';
+});
+}
+</script>
+</body>
+</html>
